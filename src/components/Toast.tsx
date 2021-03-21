@@ -35,7 +35,7 @@ const spinner = keyframes`
   }
 
   to {
-    transform: rotate(360dg);
+    transform: rotate(360deg);
   }
 `
 
