@@ -7,7 +7,8 @@
     "fix": "prettier --write src/ && eslint --fix src -c .eslintrc.js --ext ts,tsx",
     "lint:css": "stylelint src/**/*.tsx",
     "fix:css": "stylelint --fix src/**/*.tsx",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc -p . --noEmit"
   },
   "dependencies": {
     "history": "^5.0.0",
