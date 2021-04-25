@@ -1,6 +1,7 @@
 import { VFC, ReactPortal } from 'react'
 import { useToast } from '../hooks/useToast'
 import { useConfirm } from '../hooks/useConfirm'
+import { DropDown } from './DropDown/DropDown'
 
 type Props = {
   showToast: () => void
@@ -20,6 +21,12 @@ const Component: VFC<Props> = ({ showToast, renderToast, showConfirm, renderConf
     <button type="button" onClick={showConfirm}>
       確認する
     </button>
+    <DropDown label="toggle drop down">
+      <h1>DropDown Title</h1>
+      <div>
+        <p>DropDown Body</p>
+      </div>
+    </DropDown>
   </div>
 )
 
