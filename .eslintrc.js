@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('@typescript-eslint/experimental-utils').TSESLint.Linter.Config} */
+const config = {
   env: {
     browser: true,
     es2021: true,
@@ -30,6 +31,7 @@ module.exports = {
         message: 'DO NOT DECLARE ENUM',
       },
     ],
+    'arrow-body-style': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': [
@@ -59,3 +61,5 @@ module.exports = {
     ],
   },
 }
+
+module.exports = config
