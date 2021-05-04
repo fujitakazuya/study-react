@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const path = require('path')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
@@ -49,5 +50,5 @@ module.exports = merge(common, {
     hot: true,
   },
 
-  plugins: [htmlWebpackPlugin],
+  plugins: [htmlWebpackPlugin, new BundleAnalyzerPlugin()],
 })
