@@ -1,7 +1,16 @@
 import { VFC, ReactPortal } from 'react'
 import { useToast } from '../hooks/useToast'
 import { useConfirm } from '../hooks/useConfirm'
-import { DropDown } from './DropDown2/DropDown'
+import { DropDown } from './DropDown/DropDown'
+import { SelectBox } from './SelectBox'
+import { Tooltip, TooltipText } from './Tooltip'
+import { Images } from './Images'
+
+const images = [
+  { path: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png', alt: 'airplane' },
+  { path: 'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png', alt: 'arctichare' },
+  { path: 'https://homepages.cae.wisc.edu/~ece533/images/baboon.png', alt: 'baboon' },
+]
 
 type Props = {
   showToast: () => void
@@ -12,6 +21,15 @@ type Props = {
 
 const Component: VFC<Props> = ({ showToast, renderToast, showConfirm, renderConfirm }) => (
   <div>
+    <Images {...{ images }} />
+    <Tooltip>
+      <TooltipText>
+        <button type="button" onClick={showToast}>
+          トーストを表示
+        </button>
+      </TooltipText>
+      <div>ここにホバーしてね</div>
+    </Tooltip>
     {renderToast()}
     {renderConfirm()}
     <h1>This is App</h1>
@@ -35,6 +53,7 @@ const Component: VFC<Props> = ({ showToast, renderToast, showConfirm, renderConf
         <input type="text" />
       </div>
     </DropDown>
+    <SelectBox />
   </div>
 )
 
