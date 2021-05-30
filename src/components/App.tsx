@@ -3,7 +3,8 @@ import { useToast } from '../hooks/useToast'
 import { useConfirm } from '../hooks/useConfirm'
 import { DropDown } from './DropDown/DropDown'
 import { SelectBox } from './SelectBox'
-import { Tooltip, TooltipText } from './Tooltip'
+import { TooltipContainer } from './ToolTip/ToolTipContainer'
+import { TooltipText } from './ToolTip/ToolTipText'
 import { Images } from './Images'
 
 const images = [
@@ -22,14 +23,14 @@ type Props = {
 const Component: VFC<Props> = ({ showToast, renderToast, showConfirm, renderConfirm }) => (
   <div>
     <Images {...{ images }} />
-    <Tooltip>
+    <TooltipContainer>
       <TooltipText>
-        <button type="button" onClick={showToast}>
-          トーストを表示
-        </button>
+        {[0, 1, 2].map((value) => (
+          <span key={value.toString()}>{value}</span>
+        ))}
       </TooltipText>
       <div>ここにホバーしてね</div>
-    </Tooltip>
+    </TooltipContainer>
     {renderToast()}
     {renderConfirm()}
     <h1>This is App</h1>
