@@ -2,7 +2,6 @@ import { VFC, ReactPortal } from 'react'
 import { useToast } from '../hooks/useToast'
 import { useConfirm } from '../hooks/useConfirm'
 import { DropDown } from './DropDown/DropDown'
-import { SelectBox } from './SelectBox'
 import { TooltipContainer } from './ToolTip/ToolTipContainer'
 import { TooltipText } from './ToolTip/ToolTipText'
 import { Images } from './Images'
@@ -54,7 +53,6 @@ const Component: VFC<Props> = ({ showToast, renderToast, showConfirm, renderConf
         <input type="text" />
       </div>
     </DropDown>
-    <SelectBox />
   </div>
 )
 
