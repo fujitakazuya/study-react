@@ -10,13 +10,14 @@ type ContainerProps = {
 type Props = {
   isOpen: boolean
   toggle: () => void
+  open: () => void
   className?: string
 } & ContainerProps
 
-const Component: VFC<Props> = ({ label, isOpen, toggle, children, className }) => (
+const Component: VFC<Props> = ({ label, isOpen, toggle, open, children, className }) => (
   <div className={className}>
     <div>
-      <button type="button" onClick={toggle}>
+      <button type="button" onClick={open}>
         {label}
       </button>
     </div>
@@ -29,11 +30,19 @@ const StyledComponent = styled(Component)``
 const Container: VFC<ContainerProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const open = () => {
+    if (isOpen) {
+      return
+    }
+
+    setIsOpen(true)
+  }
+
   const toggle = () => {
     setIsOpen((prev) => !prev)
   }
 
-  return <StyledComponent {...{ isOpen, toggle, ...props }} />
+  return <StyledComponent {...{ isOpen, toggle, open, ...props }} />
 }
 
 export const DropDown = Container
