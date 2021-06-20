@@ -1,14 +1,7 @@
-import { VFC, ComponentProps } from 'react'
+import { ComponentProps } from 'react'
 import { Story, Meta } from '@storybook/react'
 import { TooltipContainer } from './ToolTipContainer'
 import { TooltipText } from './ToolTipText'
-
-export const ToolTip: VFC = () => (
-  <TooltipContainer>
-    <TooltipText>ToolTip</TooltipText>
-    ToolTip
-  </TooltipContainer>
-)
 
 type Props = {
   Container: ComponentProps<typeof TooltipContainer>
