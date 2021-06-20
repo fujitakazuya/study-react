@@ -37,7 +37,7 @@ const config = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['**/*.test.tsx', '**/*.test.ts', '**/*.js'],
+        devDependencies: ['**/*.test.tsx', '**/*.test.ts', '**/*.js', '**/*.stories.tsx'],
       },
     ],
     '@typescript-eslint/explicit-function-return-type': 'off',

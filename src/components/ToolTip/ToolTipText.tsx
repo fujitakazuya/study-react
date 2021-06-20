@@ -1,12 +1,20 @@
 import { VFC, ReactNode } from 'react'
 import styled from 'styled-components'
 
-type TextProps = {
+type ContainerProps = {
+  position?: 'top' | 'bottom'
   children: ReactNode | string
-  className?: string
 }
 
-const TextComponent: VFC<TextProps> = ({ children, className }) => <span className={className}>{children}</span>
+type Props = {
+  className?: string
+} & ContainerProps
+
+const TextComponent: VFC<Props> = ({ children, position = 'bottom', className }) => (
+  <span className={className} data-position={position}>
+    {children}
+  </span>
+)
 
 const StyledTextComponent = styled(TextComponent)`
   opacity: 0;
@@ -25,6 +33,13 @@ const StyledTextComponent = styled(TextComponent)`
   border-radius: 3px;
   transition: 0.3s ease-in;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  &[data-position='top'] {
+    bottom: 35px;
+  }
 `
 
-export const TooltipText = StyledTextComponent
+const Container: VFC<ContainerProps> = (props) => {
+  return <StyledTextComponent {...props} />
+}
+export const TooltipText = Container

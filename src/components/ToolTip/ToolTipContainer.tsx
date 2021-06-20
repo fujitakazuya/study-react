@@ -1,10 +1,13 @@
 import { VFC, ReactNode } from 'react'
 import styled from 'styled-components'
 
-type Props = {
-  children: ReactNode
-  className?: string
+type ContainerProps = {
+  children: ReactNode | string
 }
+
+type Props = {
+  className?: string
+} & ContainerProps
 
 const Component: VFC<Props> = ({ children, className }) => <div className={className}>{children}</div>
 
@@ -18,4 +21,8 @@ const StyledComponent = styled(Component)`
   }
 `
 
-export const TooltipContainer = StyledComponent
+const Container: VFC<ContainerProps> = (props) => {
+  return <StyledComponent {...props} />
+}
+
+export const TooltipContainer = Container
