@@ -1,3 +1,6 @@
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const webpack = require('webpack')
+const ReactRefreshTypeScript = require('react-refresh-typescript')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const path = require('path')
@@ -28,6 +31,10 @@ module.exports = merge(common, {
               compilerOptions: {
                 jsx: 'react-jsxdev',
               },
+              getCustomTransformers: () => ({
+                before: [ReactRefreshTypeScript()],
+              }),
+              transpileOnly: true,
             },
           },
         ],
@@ -50,5 +57,10 @@ module.exports = merge(common, {
     hot: true,
   },
 
-  plugins: [htmlWebpackPlugin, new BundleAnalyzerPlugin()],
+  plugins: [
+    htmlWebpackPlugin,
+    new BundleAnalyzerPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
+  ],
 })
